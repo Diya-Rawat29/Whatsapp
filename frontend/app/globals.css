@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --wa-green: #25D366;
+  --wa-green-glow: rgba(37, 211, 102, 0.4);
+  --wa-dark: #128C7E;
+  --bg-dark: #09090b;
+  --bg-card: rgba(24, 24, 27, 0.7);
+  --bg-card2: rgba(39, 39, 42, 0.5);
+  --border: rgba(63, 63, 70, 0.4);
+  --text-main: #f4f4f5;
+  --text-muted: #a1a1aa;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-dark);
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(37, 211, 102, 0.08), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(37, 211, 102, 0.06), transparent 25%);
+  color: var(--text-main);
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--wa-green); }
+
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 var(--wa-green-glow); }
+  50% { box-shadow: 0 0 0 10px rgba(37,211,102,0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in { animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.pulse-green { animation: pulse-green 2s infinite; }
+
+/* Markdown Styles */
+.prose p { margin-bottom: 0.5em; line-height: 1.5; }
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { color: #fff; font-weight: 600; }
+.prose em { font-style: italic; color: #e4e4e7; }
+.prose code { background: rgba(0,0,0,0.3); padding: 2px 4px; border-radius: 4px; color: #a78bfa; font-size: 0.9em; }
+.prose pre { background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px; overflow-x: auto; margin: 8px 0; }
+.prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 0.5em; }
+.prose ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 0.5em; }
+.prose li { margin-bottom: 0.25em; }
